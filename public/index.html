@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mymodule">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="controller.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <title>Contact List</title>
+</head>
+<body ng-controller="mycontroller">
+<div class="container">
+<h1>Contact List </h1>
+<table class="table table-bordered">
+
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Email</th>
+        <th>Action</th>
+        <th>&nbsp;</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td><input class="form-control" ng-model="person1.name"></td>
+        <td><input class="form-control" ng-model="person1.number"></td>
+        <td><input class="form-control" ng-model="person1.email"></td>
+        <td><button class="btn btn-primary" ng-click="addcontact()">Add Contact</button></td>
+        <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+    </tr>
+        <tr ng-repeat="person in people">
+        <td>{{person.name}}</td>
+        <td>{{person.number}}</td>
+        <td>{{person.email}}</td>
+        <td><button class="btn btn-danger" ng-click="remove(person._id)">Delete</button></td>
+            <td><button class="btn btn-warning" ng-click="edit(person._id)">Edit</button></td>
+    </tr>
+    </tbody>
+
+</table>
+    </div>
+</body>
+</html>
